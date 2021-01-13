@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+    <style>
+        .center {
+            margin: auto;
+            border: 1px solid red;
+            padding: 10px;
+        }
+
+        .header-in-line {
+            text-shadow: 2px 2px 5px red;
+        }
+
+        .tab {
+            border: 1px solid green;
+            margin: .2rem;
+        }
+
+        h5 {
+            text-align: center;
+            margin: .5rem !important;
+        }
+
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <template><div class="center"><div class="row"><div class="m-2 header-in-line" style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{_getVal("name")}}</div><div class="m-2 header-in-line" style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{_getVal("code")}}</div><div class="m-2 header-in-line" style="font-weight:bold; display:inline; font-size:12px; background-color:#347B30;">{{_getDate("updatetime",5)}}</div></div>
+    <div class="row">
+    <table class="tab" v-for="(n, t) in 5"><tr v-if='getVal("最新公告",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >最新公告：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html='highlight(getVal("最新公告",t))'></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td></tr>
+<tr v-if='getVal("最新报道",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >最新报道：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html='highlight(getVal("最新报道",t))'></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td></tr>
+<tr v-if='getVal("业绩预告",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >业绩预告：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html='highlight(getVal("业绩预告",t))'></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td></tr>
+<tr v-if='getVal("特别处理",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >特别处理：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html='highlight(getVal("特别处理",t))'></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td></tr>
+<tr v-if='getVal("最新提醒增发",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >最新提醒增发：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html='highlight(getVal("最新提醒增发",t))'></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;" ></td></tr>
+<tr v-if='getVal("股东户数变化上期时间",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >股东户数变化：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >上期：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >{{getDate("股东户数变化上期时间",t,5)}}</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >本期户数：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html='highlight(getVal("股东户数变化增减",t))'></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >户数幅度</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html="getNum('股东户数变化幅度',t,0.0,'gte','#FF0000')"></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >变化户数</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html="getNum('股东户数变化幅度',t,1000.0,'gte','#FF0000')"></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >本期变化时间：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >{{getDate("股东户数变化本期时间",t,0)}}</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" >本期股东数</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;" v-html="getNum('股东户数变化本期股东数',t,0.0,'gte','#FF0000')"></td></tr>
+
+    </table></div></div></template>
+</div>
+<script>
+    // using vm.items={} to update the view
+    var vm = new Vue(
+        {
+            el: '#app',
+            data: function () {
+                return {
+                    query: [{
+                        "color": "yellow",
+                        "bgcolor": "brown",
+                        "incl": ["深粮控股", "意见"],
+                        "excl": ["01-17"]
+                    }, {
+                        "color": "pink",
+                        "bgcolor": "black",
+                        "incl": ["撤销退市"],
+                        "excl": ["其他风险", "其它风险"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["举牌"], "excl": []}, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["并购"],
+                        "excl": ["未获"]
+                    }, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["公司", "合并"],
+                        "excl": ["报表", "暂无", "终止", "尚无"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["章建平"], "excl": ["清仓", "减持"]}, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["混改"],
+                        "excl": ["项目"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["要约", "收购"], "excl": []}, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["政府"],
+                        "excl": ["补助", "补贴"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["控股", "变更"], "excl": ["京粮"]}, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["增持"],
+                        "excl": ["H股", "B股", "终止"]
+                    }, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["回购"],
+                        "excl": ["限制性", "质押", "法律", "H股", "B股", "融资", "注销完成", "前十名股东", "终止", "国债逆回购"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["加仓"], "excl": ["H股", "B股"]}, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["重组"],
+                        "excl": ["问询函", "终止", "停牌", "限售", "未获", "难产", "夭折", "折戟", "不存在", "尚无"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["葛卫东"], "excl": ["清仓", "减持"]}, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["牛散"],
+                        "excl": ["清仓", "减持"]
+                    }, {
+                        "color": "red",
+                        "bgcolor": "black",
+                        "incl": ["净利"],
+                        "excl": ["亏", "负", "降", "滑", "减", "缩水", "计提", "不确定"]
+                    }, {"color": "red", "bgcolor": "black", "incl": ["申请撤销"], "excl": []}, {
+                        "incl": ["减持"],
+                        "excl": ["完毕"],
+                        "color": "green",
+                        "bgcolor": "black"
+                    }, {"incl": ["年报"], "excl": [], "color": "blue", "bgcolor": "black"}, {
+                        "incl": ["上半年实现"],
+                        "excl": ["李四", "王五"],
+                        "color": "red",
+                        "bgcolor": "cyan"
+                    }, {"incl": ["同比下降"], "excl": [], "color": "purple", "bgcolor": "black"}],
+                    items: {
+                        "code": "000019",
+                        "name": "深粮控股",
+                        "updatetime": "2020-11-05",
+                        "最新公告": ["2020-02-29深粮控股(000019)独立董事关于第十届董事会第八次会议相关事项的独立意见(详见公司大事)", "2020-01-17深粮控股(000019)2020年第一次临时股东大会的法律意见书(详见公司大事)", "2019-12-31深粮控股(000019)第十届监事会第六次会议决议公告(详见公司大事)", "2019-12-26深粮控股(000019)关于控股股东变更名称及其他工商登记信息的公告(详见公司大事)", "2019-11-16深粮控股(000019)2019年第五次临时股东大会决议公告(详见公司大事)", "2020-04-22深粮控股(000019)股票交易异常波动的公告(详见公司大事)", "2020-04-27深粮控股(000019)股票交易异常波动的公告(详见公司大事)", "2020-04-28深粮控股(000019)2019年度董事会报告(详见公司大事)", "2020-04-28深粮控股(000019)关于续聘立信会计师事务所(特殊普通合伙)为公司2020年度审计机构的公告(详见公司大事)", "2020-04-30深粮控股(000019)股票交易异常波动的公告(详见公司大事)", "2020-06-19深粮控股(000019)关于高级管理人员辞职的公告(详见公\r司大事)\r", "2020-08-25深粮控股(000019)2020年半年度报告(详见公司大事)\r", "2020-08-25深粮控股(000019)2020年半年度报告(详见公司大事)", "2020-10-29深粮控股(000019)2020年第三季度报告(详见公司大事)"],
+                        "最新报道": ["2019-10-14深粮控股(000019)前三季度预计扭亏为盈(详见业内点评)", "2020-05-20深粮控股(000019):尝试新媒体引流等线上销售(详见业\r内点评)\r", "2020-05-20深粮控股(000019):尝试新媒体引流等线上销售(详见业内点评)"],
+                        "最新提醒增发": ["2018年度增发65575.30万股增发价格8.96元股(实施)增发对象：福德资本"],
+                        "股东户数变化上期时间": ["2019-06-30", "2019-12-31", "2020-03-31", "2020-06-30"],
+                        "股东户数变化增减": ["减少", "增加", "增加", "增加"],
+                        "股东户数变化幅度": ["-1.67%", "18.14%", "2.86%", "1.95%"],
+                        "股东户数变化户数": ["908", "9455", "1759", "1232"],
+                        "股东户数变化本期时间": ["2019-09-30", "2020-03-31", "2020-06-30", "2020-09-30"],
+                        "股东户数变化本期股东数": ["53405", "61570", "63329", "64561"]
+                    }
+                }
+            },
+            methods: {
+                highlight(content) {
+                    this.query.map(function (q) {
+                        let excl = false;
+                        q["excl"].map(function (e) {
+                            if (content.includes(e)) {
+                                excl = true;
+                            }
+                        })
+                        if (excl === false) {
+                            q["incl"].map((i) => content = content.replace(new RegExp(i, "gi"), match => {
+                                return `<span style="color:${q["color"]};background-color: ${q["bgcolor"]}">${match}</span>`;
+                            }));
+                        }
+
+                    });
+                    return content;
+                },
+                getVal(key, index) {
+                    if (key in this.items) {
+                        if (this.items[key].length > index) {
+                            return this.items[key][index];
+                        }
+                    }
+                    return "";
+                },
+                _getVal(key) {
+                    if (key in this.items) {
+                        return this.items[key];
+                    }
+                    return "";
+                },
+                getDate(key, index, slice) {
+                    if (key in this.items) {
+                        if (this.items[key].length > index) {
+                            if (slice !== -1) {
+                                return this.items[key][index].slice(slice, 10);
+                            }
+                            return this.items[key][index];
+                        }
+                    }
+                    return "";
+                },
+                _getDate(key, slice) {
+                    if (key in this.items && slice !== -1) {
+                        return this.items[key].slice(slice, 10);
+                    }
+                    return "";
+                },
+                getNum(key, index, thres, op, color) {
+                    if (key in this.items) {
+                        if (this.items[key].length > index) {
+                            let n = this.items[key][index];
+                            if (op === "gte") {
+                                if (parseFloat(n) >= thres) {
+                                    return `<span style="color: ${color}">${n}</span>`;
+                                }
+                            } else if (op === "lt") {
+                                if (parseFloat(n) < thres) {
+                                    return `<span style="color: ${color}">${n}</span>`;
+                                }
+                            }
+                            return `<span>${n}</span>`;
+                        }
+                    }
+                    return "";
+                }
+            },
+        }
+    )
+</script>
+
+</body>
+</html>

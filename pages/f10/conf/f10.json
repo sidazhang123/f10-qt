@@ -1,0 +1,516 @@
+﻿{
+    "f10": [
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "name",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "银宝山新"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "code",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "002786"
+        },
+        {
+            "bg_color": "#347B30",
+            "bold": true,
+            "class": "updatetime",
+            "display": true,
+            "font_size": "12",
+            "format": "5",
+            "tag": "date",
+            "text": "2020-01-02"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "公积同比增",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "公积："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "增"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "公积同比增",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "-14.82%",
+            "threshold": "-14"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "公"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "公积每股公积",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "0.591",
+            "threshold": "0.5"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "营"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "公积营收万元",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "161970.27",
+            "threshold": "15000"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "公积更新日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-09-30"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "未分同比增",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "未分："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "增"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "未分同比增",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "14.49%",
+            "threshold": "-13"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "未"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "未分每股未分",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "0.3",
+            "threshold": "0.5"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "净"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "未分净利万元",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "6358.45",
+            "threshold": "15000"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "未分更新日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-09-31"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "股东控股",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "股东控股："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东控股",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "中国东方资产管理（国际）控股有限公司 35.74%"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-10-31"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "质押股东",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "质押："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "质押股东",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "山东中际投资控股有限公司"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "质押占比",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "20.10%",
+            "threshold": "15"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "发行前限售股数",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "发前限售："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "发行前限售股数",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "17650.00万",
+            "threshold": "15000"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "发行前限售日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2020-01-22"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "股改限售股数",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "股改限售："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股改限售股数",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "2200",
+            "threshold": "200"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股改限售日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-12-04"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "增发A股股数",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "增发A："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "增发A股股数",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "41485.92万",
+            "threshold": "35555"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "增发A股日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-09-30"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "激励限售股数",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "激励限售："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "激励限售股数",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "24.21万",
+            "threshold": "22"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "激励限售日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-12-22"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "承诺到期股数",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "承诺到期："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "承诺到期股数",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "135.78万",
+            "threshold": "111"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "承诺到期日期",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2020-03-17"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        }
+    ]
+}

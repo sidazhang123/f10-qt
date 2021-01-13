@@ -1,0 +1,415 @@
+﻿{
+    "f10a_supplement": [
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "name",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "银宝山新"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "code",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "002786"
+        },
+        {
+            "bg_color": "#347B30",
+            "bold": true,
+            "class": "updatetime",
+            "display": true,
+            "font_size": "12",
+            "format": "5",
+            "tag": "date",
+            "text": "2020-01-02"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "最新公告",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "最新公告："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "最新公告",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "2020-03-17亚通股份(600692)关于《上海亚通股份有限公司股票异常波动问询函》的回复(详见公司大事)"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "最新报道",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "最新报道："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "最新报道",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "2020-04-01亚通股份(600692):公司收购资产事项收到上交所问询函(详见业内点评)"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "业绩预告",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "业绩预告："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "业绩预告",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "预计2020年1月至9月可能继续亏损。(信息来源:2020-08-26中期报告)"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "特别处理",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "特别处理："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "特别处理",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "2020-04-29*ST"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "最新提醒增发",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "最新提醒增发："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "最新提醒增发",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "2020年度拟非公开发行不超过15050.17万股(股东大会通过)增发对象：万胜实业、福州钻金森、易联金创、华灵隆、金稻谷"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "股东户数变化上期时间",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "股东户数变化："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "上期："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东户数变化上期时间",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2019-06-30"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "本期户数："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东户数变化增减",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "减少"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "户数幅度"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东户数变化幅度",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "-3.97%",
+            "threshold": "0"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "变化户数"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东户数变化幅度",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "1324",
+            "threshold": "1000"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "本期变化时间："
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东户数变化本期时间",
+            "display": true,
+            "font_size": "12",
+            "format": "0",
+            "tag": "date",
+            "text": "2019-06-30"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "本期股东数"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "股东户数变化本期股东数",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "32051",
+            "threshold": "0"
+        }
+    ]
+}

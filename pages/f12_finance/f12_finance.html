@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+    <style>
+        .center {
+            margin: auto;
+            padding: 10px;
+        }
+
+        .table {
+            width: auto;
+            margin-right: .5rem;
+        }
+
+        h5 {
+            text-align: center;
+            margin: .5rem !important;
+        }
+
+        .header-in-line {
+            text-shadow: 2px 2px 5px red;
+        }
+
+        div, td, th {
+            white-space: pre-line;
+        }
+
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <template>
+        <div class="center">
+            <div class="row">
+                <div class="m-2 header-in-line" style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">
+                    {{_getVal("name")}}
+                </div>
+                <div class="m-2 header-in-line" style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">
+                    {{_getVal("code")}}
+                </div>
+                <div class="m-2 header-in-line" style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">
+                    {{_getDate("updatetime",5)}}
+                </div>
+            </div>
+            <div class="row"><div v-html="makeAlert()"></div></div>
+            <div class="row">
+                <table class="table table-bordered" style="border:2px solid blue;">
+                    <thead>
+                    <tr>
+                        <th style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></th>
+                        <th style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"
+                            v-for='date in ordered_sliced_datesY'>{{date.slice(0)}}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-if='checkVal("YTab","审计意见")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">审计意见</td>
+                        <td v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">
+                            {{getVal("YTab","审计意见",date)}}
+                        </td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","净利润(万元)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">净利润(万元)</td>
+                        <td v-html="getNum('YTab','净利润(万元)',date,5000.0,'lt','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","净利润增长率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">净利润增长率(%)</td>
+                        <td v-html="getNum('YTab','净利润增长率(%)',date,50.0,'lt','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","营业总收入(万元)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">营业总收入(万元)</td>
+                        <td v-html="getNum('YTab','营业总收入(万元)',date,50000.0,'nil','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","营业总收入增长率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">营业总收入增长率(%)</td>
+                        <td v-html="getNum('YTab','营业总收入增长率(%)',date,0.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","加权净资产收益率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">加权净资产收益率(%)</td>
+                        <td v-html="getNum('YTab','加权净资产收益率(%)',date,1.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","资产负债比率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">资产负债比率(%)</td>
+                        <td v-html="getNum('YTab','资产负债比率(%)',date,10.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("YTab","净利润现金含量(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">净利润现金含量(%)</td>
+                        <td v-html="getNum('YTab','净利润现金含量(%)',date,80.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesY'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></th>
+                        <th style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"
+                            v-for='date in ordered_sliced_datesQ'>{{date.slice(0)}}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-if='checkVal("QTab","审计意见")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">审计意见</td>
+                        <td v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">
+                            {{getVal("QTab","审计意见",date)}}
+                        </td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","净利润(万元)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">净利润(万元)</td>
+                        <td v-html="getNum('QTab','净利润(万元)',date,5000.0,'lt','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","净利润增长率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">净利润增长率(%)</td>
+                        <td v-html="getNum('QTab','净利润增长率(%)',date,50.0,'lt','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","营业总收入(万元)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">营业总收入(万元)</td>
+                        <td v-html="getNum('QTab','营业总收入(万元)',date,50000.0,'nil','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","营业总收入增长率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">营业总收入增长率(%)</td>
+                        <td v-html="getNum('QTab','营业总收入增长率(%)',date,0.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","加权净资产收益率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">加权净资产收益率(%)</td>
+                        <td v-html="getNum('QTab','加权净资产收益率(%)',date,1.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","资产负债比率(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">资产负债比率(%)</td>
+                        <td v-html="getNum('QTab','资产负债比率(%)',date,10.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    <tr v-if='checkVal("QTab","净利润现金含量(%)")'>
+                        <td style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;">净利润现金含量(%)</td>
+                        <td v-html="getNum('QTab','净利润现金含量(%)',date,80.0,'gte','#FF0000')"
+                            v-for='date in ordered_sliced_datesQ'
+                            style="font-weight:bold; ; font-size:12px; background-color:#FFFFFF;"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </template>
+
+
+</div>
+<script tag="preset-params">
+    let start = "2017-06-22", end = "2021-06-09", ordering = "true";
+</script>
+<script>
+
+    // using vm.items={} to update the view
+    var vm = new Vue(
+        {
+            el: '#app',
+            data: function () {
+                return {
+                    query: this.query=[{"净利润(万元)": ["inf", 10000.0, 0.75, "inf", 5000.0], "净利润增长率(%)": ["inf", 10.0, 0.75, "inf", 5.0]}, {"净利润(万元)": [20000.0, 15000.0, 0.75, "inf", 3000.0], "净利润增长率(%)": ["inf", 10.0, 0.75, "inf", 10.0]}],
+                    items: {"QTab":{"净利润(万元)":{"2019-09-30":"4835000.00","2019-12-31":"5891100.00","2020-03-31":"1736100.00","2020-06-30":"2895500.00","2020-09-30":"4474200.00"},"净利润增长率(%)":{"2019-09-30":"11.9032","2019-12-31":"5.3600","2020-03-31":"5.4803","2020-06-30":"-9.8144","2020-09-30":"-7.4623"},"净利润现金含量(%)":{"2019-09-30":"-139.5016","2019-12-31":"-116.4944","2020-03-31":"532.1007","2020-06-30":"425.9610","2020-09-30":"469.5588"},"加权净资产收益率(%)":{"2019-09-30":"10.3200","2019-12-31":"12.2900","2020-03-31":"3.2800","2020-06-30":"5.5300","2020-09-30":"8.3900"},"审计意见":{"2019-09-30":"未经审计","2019-12-31":"标准无保留意见","2020-03-31":"未经审计","2020-06-30":"未经审计","2020-09-30":"未经审计"},"营业总收入(万元)":{"2019-09-30":"14638600.0","2019-12-31":"19068800.0","2020-03-31":"5542400.00","2020-06-30":"10140700.0","2020-09-30":"14873100.0"},"营业总收入增长率(%)":{"2019-09-30":"15.4009","2019-12-31":"11.6016","2020-03-31":"10.6621","2020-06-30":"3.9017","2020-09-30":"1.6019"},"资产负债比率(%)":{"2019-09-30":"91.9424","2019-12-31":"91.9918","2020-03-31":"92.0170","2020-06-30":"92.3924","2020-09-30":"92.4378"}},"YTab":{"净利润(万元)":{"2016-12-31":"5309900.00","2017-12-31":"5425800.00","2018-12-31":"5591400.00","2019-12-31":"5891100.00"},"净利润增长率(%)":{"2016-12-31":"4.9304","2017-12-31":"2.1827","2018-12-31":"3.0521","2019-12-31":"5.3600"},"净利润现金含量(%)":{"2016-12-31":"-361.5755","2017-12-31":"-259.2668","2018-12-31":"-605.1436","2019-12-31":"-116.4944"},"加权净资产收益率(%)":{"2016-12-31":"16.3500","2017-12-31":"14.4500","2018-12-31":"13.1400","2019-12-31":"12.2900"},"审计意见":{"2016-12-31":"标准无保留意见","2017-12-31":"标准无保留意见","2018-12-31":"标准无保留意见","2019-12-31":"标准无保留意见"},"营业总收入(万元)":{"2016-12-31":"16077900.0","2017-12-31":"16861900.0","2018-12-31":"17154200.0","2019-12-31":"19068800.0"},"营业总收入增长率(%)":{"2016-12-31":"9.7093","2017-12-31":"4.8763","2018-12-31":"1.7335","2019-12-31":"11.6016"},"资产负债比率(%)":{"2016-12-31":"93.6330","2017-12-31":"92.9775","2018-12-31":"92.3941","2019-12-31":"91.9918"}},"code":"600000","name":"浦发银行","updatetime":"2020-11-17"}
+                }
+            },
+            computed: {
+                ordered_sliced_datesY: function () {
+                    let m = this.items["YTab"];
+                    let dates = [];
+                    Array.from(Object.keys(m)).map((x) => {
+                        let d = this.filter_dates(m[x], start, end, ordering);
+                        if (d.length > dates.length) {
+                            dates = d;
+                        }
+                    });
+                    return dates;
+                },
+                ordered_sliced_datesQ: function () {
+                    let m = this.items["QTab"];
+                    let dates = [];
+                    Array.from(Object.keys(m)).map((x) => {
+                        let d = this.filter_dates(m[x], start, end, ordering);
+                        if (d.length > dates.length) {
+                            dates = d;
+                        }
+                    });
+                    return dates;
+                }
+            },
+            methods: {
+                makeAlert() {
+                    let alert="";
+                    this.query.map((conf)=>{
+                        let isOk=true;
+                        let alertMsg=["","","",""];
+                        console.log(`conf: ${conf}`);
+                        for (let key of ['净利润(万元)', '净利润增长率(%)']) {
+                            let np = conf[key];
+                            console.log(`key: ${key}`);
+                            let YUpper_np = np[0] === "inf" ? Infinity : np[0];
+                            let YLower_np = np[1] === "inf" ? Infinity : np[1];
+                            let proportion_np = np[2];
+                            let QUpper_np = np[3] === "inf" ? Infinity : np[3];
+                            let QLower_np = np[4] === "inf" ? Infinity : np[4];
+                            let okCount = 0;
+                            let data = this.items["YTab"][key];
+                            Array.from(Object.keys(data)).map((d)=>{
+                                if (data[d] <= YUpper_np && data[d] >= YLower_np) {
+                                    okCount += 1;
+                                }}
+                            )
+                            if (okCount / data.length < proportion_np || this.items["QTab"][key][this.ordered_sliced_datesQ[0]] > QUpper_np
+                                || this.items["QTab"][key][this.ordered_sliced_datesQ[0]] < QLower_np) {
+                                isOk=false;
+                            }else{
+                                if (key==='净利润(万元)'){
+                                    alertMsg[0]=`年${YLower_np}${YUpper_np===Infinity?"":"-"+YUpper_np}亿`;
+                                    alertMsg[2]=`本季${QLower_np}${QUpper_np===Infinity?"":"-"+QUpper_np}亿`;
+                                }else{
+                                    alertMsg[1]=`${YLower_np}${YUpper_np===Infinity?"":"-"+YUpper_np}%增`;
+                                    alertMsg[3]=`${QLower_np}${QUpper_np===Infinity?"":"-"+QUpper_np}%增`;
+                                }
+
+                            }
+                        }
+                        if (isOk){
+                            alert= `<span style="color:red;font-weight: bold;font-size: 20px; border: #0044cc solid 1px;">${alertMsg.join("; ")}</span>`;
+                            return "--";
+                        }
+                    })
+                    return alert
+                },
+                filter_dates(obj, start, end, order) {
+                    let startd = new Date(start), endd = new Date(end);
+                    let dates = Array.from(Object.keys(obj)).filter(function (x) {
+                        let dx = new Date(x);
+                        return !isNaN(Date.parse(x)) && dx >= startd && dx <= endd;
+                    }).sort((a, b) => new Date(b) - new Date(a));
+                    if (order) {
+                        return dates.reverse();
+                    }
+                    return dates;
+                },
+                checkVal(tab, field) {
+                    return tab in this.items && field in this.items[tab] && Object.keys(this.items[tab][field]).length > 0;
+                },
+                getVal(tab, field, date) {
+                    if (tab in this.items && field in this.items[tab] && date in this.items[tab][field]) {
+                        return this.items[tab][field][date];
+                    }
+                    return "-";
+                },
+                getNum(tab, field, date, thres, op, color) {
+                    if (tab in this.items && field in this.items[tab] && date in this.items[tab][field]) {
+                        let n = this.items[tab][field][date];
+                        if (op === "gte") {
+                            if (parseFloat(n) >= thres) {
+                                return `<span style="color: ${color}">${n}</span>`;
+                            }
+                        } else if (op === "lt") {
+                            if (parseFloat(n) < thres) {
+                                return `<span style="color: ${color}">${n}</span>`;
+                            }
+                        }
+                        return `<span>${n}</span>`;
+                    }
+                    return "<span>-</span>";
+                },
+
+                getDate(key, index, slice) {
+                    if ("tables" in this.items && this.items["tables"].length > index) {
+                        let n = this.items["tables"][index];
+                        if (key in n) {
+                            n = n[key];
+                            if (slice !== -1) {
+                                return n.slice(slice, 10);
+                            }
+                            return n;
+                        }
+                    }
+                    return "";
+                },
+                // use for code name updatetime only
+                _getNum(key, thres, op, color) {
+                    if (key in this.items) {
+                        let n = this.items[key];
+                        if (op === "gte") {
+                            if (parseFloat(n) >= thres) {
+                                return `<span style="color: ${color}">${n}</span>`;
+                            }
+                        } else if (op === "lt") {
+                            if (parseFloat(n) < thres) {
+                                return `<span style="color: ${color}">${n}</span>`;
+                            }
+                        }
+                        return `<span>${n}</span>`;
+                    }
+                    return "";
+                },
+                // trivial value
+                _getVal(key) {
+                    if (key in this.items) {
+                        return this.items[key];
+                    }
+                    return "";
+                },
+                _getDate(key, slice) {
+                    if (key in this.items && slice !== -1) {
+                        return this.items[key].slice(slice, 10);
+                    }
+                    return "";
+                },
+            },
+        }
+    )
+</script>
+</body>
+</html>

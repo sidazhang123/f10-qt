@@ -1,0 +1,240 @@
+﻿{
+    "f12_finance": [
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "name",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "银宝山新"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "code",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "002786"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "updatetime",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date-header",
+            "text": "2020-01-02"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "date_end": "2021-06-09",
+            "date_start": "2017-06-22",
+            "font_size": "12",
+            "format": "0",
+            "ordering": true,
+            "tag": "date",
+            "text": "2019-12-31"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "审计意见",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "审计意见"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "审计意见",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "标准无保留意见"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "净利润(万元)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "净利润(万元)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "净利润(万元)",
+            "cond": "lt",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "5230.86",
+            "threshold": "5000"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "净利润增长率(%)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "净利润增长率(%)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "净利润增长率(%)",
+            "cond": "lt",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "62.2279",
+            "threshold": "50"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "营业总收入(万元)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "营业总收入(万元)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "营业总收入(万元)",
+            "cond": "nil",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "47908.67",
+            "threshold": "50000"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "营业总收入增长率(%)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "营业总收入增长率(%)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "营业总收入增长率(%)",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "14.1231",
+            "threshold": "0"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "加权净资产收益率(%)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "加权净资产收益率(%)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "加权净资产收益率(%)",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "13.6200",
+            "threshold": "1"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "资产负债比率(%)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "资产负债比率(%)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "资产负债比率(%)",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "27.7692",
+            "threshold": "10"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "check_fn": "净利润现金含量(%)",
+            "class": "label",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "净利润现金含量(%)"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "净利润现金含量(%)",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "141.26",
+            "threshold": "80"
+        },
+        {
+            "tag": "blank"
+        }
+    ]
+}

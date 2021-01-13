@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            background: #e8cbc0;
+            background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+            background: linear-gradient(to right, #e8cbc0, #636fa4);
+            min-height: 90vh;
+        }
+
+        div::-webkit-scrollbar {
+            display: none;
+        }
+
+        .list-item {
+            overflow-wrap: break-word;
+            text-align: center;
+        }
+
+        .bootstrap-select .bs-ok-default::after {
+            width: 0.3em;
+            height: 0.5em;
+            border-width: 0 0.1em 0.1em 0;
+            transform: rotate(45deg) translateY(0.5rem);
+        }
+
+        .btn.dropdown-toggle:focus {
+            outline: none !important;
+        }
+
+        a {
+            -webkit-user-select: none; /* Safari 3.1+ */
+            -moz-user-select: none; /* Firefox 2+ */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
+            user-drag: none;
+            -webkit-user-drag: none;
+        }
+
+        div.console {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 12px 55px 0 rgba(0, 0, 0, 0.3);
+            text-align: center;
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #d7e1ec 0%, #e8d8da 74%);
+            margin-top: .6rem !important;
+            height: 90% !important;
+        }
+
+        .text-align-left {
+            text-align: left;
+            margin-left: 1em;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="width:930px;height:580px;">
+    <div class="row  " style="height:90%!important">
+        <div class="col-sm-8 console">
+            <div class="h-100 list-group" id="console" style="overflow-y:scroll;">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="container py-5">
+                    <div class=" dropdown show" style="width: 200px">
+                        <a aria-expanded="false" aria-haspopup="true"
+                           class="btn btn-secondary btn-block dropdown-toggle"
+                           data-toggle="dropdown"
+                           href="#" id="dropdownMenuLink" role="button">
+                            Config Layout
+                        </a>
+                        <div aria-labelledby="dropdownMenuLink" class="dropdown-menu" style="width: 200px">
+                            <a class="dropdown-item" href="javascript:void(0);" path="f10_conf">f10</a>
+                            <a class="dropdown-item" href="javascript:void(0);"
+                               path="f10a_supplement_conf">f10a补充</a>
+                            <a class="dropdown-item" href="javascript:void(0);"
+                               path="f10b_shareholder_conf">f10b股东</a>
+                            <a class="dropdown-item" href="javascript:void(0);"
+                               path="f11_industry_conf">f11经营</a>
+                            <a class="dropdown-item" href="javascript:void(0);" path="f12_finance_conf">f12财务</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container py-5" style="width: 230px!important">
+                    <select class="selectpicker w-100" data-style="bg-white rounded-pill px-4 py-3 shadow-sm "
+                            id="subWindows"
+                            multiple>
+                        <option value="f10">f10</option>
+                        <option value="f10a_supplement">f10a补充</option>
+                        <option value="f10b_shareholder">f10b股东</option>
+                        <option value="f11_industry">f11经营</option>
+                        <option value="f12_finance">f12财务</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="container py-5 px-5">
+
+                    <label class="label label-primary font-weight-bold" for="boss"
+                           style="font-size: 16px;"><input
+                            class="form-check-input" id="boss" type="checkbox">boss</label>
+
+                    <button class="btn btn-info" id="apply_strat" type="button">套用策略</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 ">
+            <button class="btn btn-primary btn-block" id="update">
+                Update
+            </button>
+        </div>
+        <div class="col-sm-6 ">
+            <button class="btn btn-primary btn-block" id="show">
+                Show
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.selectpicker').selectpicker();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("a.dropdown-item").click(function () {
+
+            var path = $(this).attr('path');
+            if (typeof path !== typeof undefined && path !== false) {
+
+                backend.nav(path, 'home');
+            }
+        });
+
+    });
+
+    $(document).ready(function () {
+        $("#show").click(function () {
+            let winTitles = $('#subWindows option:selected').map(function () {
+                return $(this).val();
+            }).get();
+            if (winTitles.length===0){alert("windows to open没勾选")}
+            winTitles.forEach(function (t) {
+                backend.newWindow(t,async function(r) {
+                if (r.length>0){alert(r);}
+            });
+            })
+        });
+
+    });
+
+    $(document).ready(function () {
+        $("#update").click(function () {
+            $(this).prop("disabled", true);
+            backend.update("https://",
+                [["f10", "{\"win\":\"f10\"}", "data/f10.json"],
+                    ["f10a补充", "{\"win\":\"f10a_supplement\"}", "data/f10a_supplement.json"],
+                    ["f10b股东", "{\"win\":\"f10b_shareholder\"}", "data/f10b_shareholder.json"],
+                    ["f11经营", "{\"win\":\"f11_industry\"}", "data/f11_industry.json"],
+                    ["f12财务", "{\"win\":\"f12_finance\"}", "data/f12_finance.json"],]);
+        });
+
+    });
+
+    $(document).ready(function () {
+        $("#boss").click(function () {
+            backend.setboss($(this).prop("checked"));
+        });
+    });
+
+    $(document).ready(function () {
+        $("#apply_strat").click(function () {
+            $(this).prop("disabled", true);
+            backend.apply_strat();
+        });
+    });
+</script>
+</body>
+</html>

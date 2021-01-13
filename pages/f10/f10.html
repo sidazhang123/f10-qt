@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">-->
+    <style>
+        .center {
+            margin: auto;
+            border: 1px solid red;
+            padding: 10px;
+        }
+
+        .header-in-line {
+            text-shadow: 2px 2px 5px red;
+        }
+
+        .tab {
+            border: 1px solid green;
+            margin: .2rem;
+        }
+
+        h5 {
+            text-align: center;
+            margin:.5rem!important;
+        }
+        td{white-space: nowrap;}
+        .row {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <template><div class="center"><div class="row"><div class="m-2 header-in-line" style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{_getVal("name")}}</div><div class="m-2 header-in-line" style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{_getVal("code")}}</div><div class="m-2 header-in-line" style="font-weight:bold; display:inline; font-size:12px; background-color:#347B30;">{{_getDate("updatetime",5)}}</div></div>
+    <div class="row">
+    <table class="tab" v-for="(n, t) in 5"><tr v-if='getVal("公积同比增",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">公积：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">增</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('公积同比增',t,-14.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">公</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('公积每股公积',t,0.5,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">营</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('公积营收万元',t,15000.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("公积更新日期",t,5)}}</td></tr>
+<tr v-if='getVal("未分同比增",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">未分：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">增</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('未分同比增',t,-13.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">未</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('未分每股未分',t,0.5,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">净</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('未分净利万元',t,15000.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("未分更新日期",t,5)}}</td></tr>
+<tr v-if='getVal("股东控股",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">股东控股：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;white-space:pre-wrap;">{{getVal("股东控股",t)}}</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">2019-10-31</td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+<tr v-if='getVal("质押股东",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">质押：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;white-space:pre-wrap;">{{getVal("质押股东",t)}}</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('质押占比',t,15.0,'gte','#FF0000')"></span></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+<tr v-if='getVal("发行前限售股数",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">发前限售：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('发行前限售股数',t,15000.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("发行前限售日期",t,5)}}</td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+<tr v-if='getVal("股改限售股数",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">股改限售：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('股改限售股数',t,200.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("股改限售日期",t,5)}}</td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+<tr v-if='getVal("增发A股股数",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">增发A：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('增发A股股数',t,35555.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("增发A股日期",t,5)}}</td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+<tr v-if='getVal("激励限售股数",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">激励限售：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('激励限售股数',t,22.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("激励限售日期",t,5)}}</td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+<tr v-if='getVal("承诺到期股数",t).length>0'><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">承诺到期：</td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;"><span v-html="getNum('承诺到期股数',t,111.0,'gte','#FF0000')"></span></td><td style="font-weight:bold; display:inline; font-size:12px; background-color:#FFFFFF;">{{getDate("承诺到期日期",t,5)}}</td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td><td style="font-weight:normal; display:inline; font-size:14px; background-color:#FFFFFF;"></td></tr>
+
+    </table></div></div></template>
+</div>
+<script>
+    // using vm.items={} to update the view
+    var vm = new Vue(
+        {
+            el: '#app',
+            data: function () {
+                return {
+                    items: {"code":"000019","name":"深粮控股","updatetime":"2020-11-05","公积同比增":["2.91%","-34.09%","-0.87%","6.11%"],"公积更新日期":["2019-09-30","2020-03-31","2020-06-30","2020-09-30"],"公积每股公积":["1.235","1.235","1.235","1.235"],"公积营收万元":["748085.91","169425.60","474042.82","793784.71"],"增发A股日期":["2022-05-12"],"增发A股股数":["65575.30万"],"未分净利万元":["32938.76","8298.48","21073.87","31044.32"],"未分同比增":["13.39%","-31.60%","3.73%","-5.75%"],"未分更新日期":["2019-09-30","2020-03-31","2020-06-30","2020-09-30"],"未分每股未分":["1.288","1.369","1.280","1.367"],"股东控股":["深圳市人民政府国有资产监督管理委员会 控股比例(上市公司):66.59%\n深圳市食品物资集团有限公司 63.79%","深圳市人民政府国有资产监督管理委员会 控股比例(上市公司):66.59%\n深圳市食品物资集团有限公司 63.79%"]}
+
+                }
+            },
+            methods: {
+                getVal(key, index) {
+                    if (key in this.items) {
+                        if (this.items[key].length > index) {
+                            return this.items[key][index];
+                        }
+                    }
+                    return "";
+                },
+                _getVal(key) {
+                    if (key in this.items) {
+                       return this.items[key];
+                    }
+                    return "";
+                },
+                getDate(key, index, slice) {
+                    if (key in this.items) {
+                        if (this.items[key].length > index) {
+                            if (slice !== -1) {
+                                return this.items[key][index].slice(slice, 10);
+                            }
+                            return this.items[key][index];
+                        }
+                    }
+                    return "";
+                },
+                _getDate(key, slice) {
+                    if (key in this.items && slice !== -1){
+                        return this.items[key].slice(slice, 10);
+                    }
+                    return "";
+                },
+                getNum(key, index, thres, op, color) {
+                    if (key in this.items) {
+                        if (this.items[key].length > index) {
+                            let n = this.items[key][index];
+                            if (op === "gte") {
+                                if (parseFloat(n) >= thres) {
+                                    return `<span style="color: ${color}">${n}</span>`;
+                                }
+                            } else if (op === "lt") {
+                                if (parseFloat(n) < thres) {
+                                    return `<span style="color: ${color}">${n}</span>`;
+                                }
+                            }
+                            return `<span>${n}</span>`;
+                        }
+                    }
+                    return "";
+                }
+            },
+        }
+    )
+</script>
+
+</body>
+</html>

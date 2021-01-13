@@ -1,0 +1,92 @@
+﻿{
+    "f10b_shareholder": [
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "name",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "银宝山新"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "code",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "002786"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "updatetime",
+            "display": true,
+            "font_size": "12",
+            "format": 5.0,
+            "tag": "date",
+            "text": "2020-01-02"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "date",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "19-12-31"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "percentage",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "75.82%",
+            "threshold": "15"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "variation",
+            "cond": "gte",
+            "display": true,
+            "font_color": "#FF0000",
+            "font_size": "12",
+            "tag": "num",
+            "text": "506.62万",
+            "threshold": "15"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "trend",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "↑"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": false,
+            "class": "tableString",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "= TABLES ="
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        },
+        {
+            "tag": "blank"
+        }
+    ]
+}

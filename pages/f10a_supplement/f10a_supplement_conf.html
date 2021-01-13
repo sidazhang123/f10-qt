@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .clearfix:after {
+            content: "\20";
+            display: block;
+            height: 0;
+            font-size: 0;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .box {
+            width: 923px;
+            float: left;
+        }
+        .center {
+            margin: auto;
+            width: 100%;
+        }
+
+        .modal-dialog-toast {
+            position: relative;
+            display: table; /* This is important */
+            overflow-y: auto;
+            overflow-x: auto;
+            width: auto;
+            min-width: 100px;
+        }
+
+        .block {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            float: left;
+            width: 70px;
+            height: 39px;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            border: 1px solid #000;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 3em;
+            cursor: default;
+            transition: all 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="col-sm-2">
+        <div class=" btn btn-success m-3 w-100" id="home" type="button">Home</div>
+    </div>
+    <div class="col-sm-2">
+        <div class=" btn btn-primary m-3 w-100" id="save" type="button">Save</div>
+    </div>
+    <div class="col-sm-2">
+        <div class=" btn btn-danger m-3 w-100" id="reset" type="button">Reset</div>
+    </div>
+</div>
+<div class="center ml-3">
+    <div class="box row-header">
+    </div>
+    <div class="box">
+        <ul class="clearfix" id="dragBox">
+        </ul>
+    </div>
+</div>
+
+<div class="modal fade" id="numModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">BgColor:</label></div>
+                    <input class="form-control col-sm-4 bg_color" type="text">
+                    <div class="col-sm-3 form-control border-0"><input type="checkbox" class="display">Display</div>
+                    <div class="col-sm-2 form-control border-0"><input type="checkbox" class="bold">Bold</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">FontSize:</label></div>
+                    <div class="col-sm-2 "><input type="text" class="form-control font_size"></div>
+
+                    <div class="col-sm-3"><label class="col-form-label">FontColor:</label></div>
+                    <input class="form-control col-sm-4 font_color" type="text">
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">Threshold:</label></div>
+                    <div class="col-sm-4"><input class="form-control threshold" type="text"></div>
+                    <div class="col-sm-4"><select class="form-control cond">
+                        <option value="nil">GTE / LT...</option>
+                        <option value="gte">">="</option>
+                        <option value="lt">"<"</option>
+                    </select></div>
+                </div>
+                <input class="tileId" type="hidden">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="numModalBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="textModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">BgColor:</label></div>
+                    <input class="form-control col-sm-4 bg_color" type="text">
+                    <div class="col-sm-3 form-control border-0"><input type="checkbox" class="display">Display</div>
+                    <div class="col-sm-2 form-control border-0"><input type="checkbox" class="bold">Bold</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">FontSize:</label></div>
+                    <div class="col-sm-2 "><input type="text" class="form-control font_size"></div>
+
+                    <div class="col-sm-2"><label class="col-form-label">Text:</label></div>
+                    <input class="form-control col-sm-5 text" type="text">
+                </div>
+
+                <input class="tileId" type="hidden">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="textModalBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="dateModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">BgColor:</label></div>
+                    <input class="form-control col-sm-4 bg_color" type="text">
+                    <div class="col-sm-3 form-control border-0"><input type="checkbox" class="display">Display</div>
+                    <div class="col-sm-2 form-control border-0"><input type="checkbox" class="bold">Bold</div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2"><label class="col-form-label">FontSize:</label></div>
+                    <div class="col-sm-2 "><input type="text" class="form-control font_size"></div>
+                    <div class="col-sm-2"><label class="col-form-label">Format:</label></div>
+                    <div class="col-sm-4"><select class="form-control format">
+                        <option value="0">yyyy-mm-dd</option>
+                        <option value="2">yy-mm-dd</option>
+                        <option value="5">mm-dd</option>
+                    </select></div>
+
+                </div>
+
+                <input class="tileId" type="hidden">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="dateModalBtn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="toast">
+    <div class="modal-dialog modal-dialog-toast">
+        <div class="modal-content">
+            <div class="modal-body" style>
+                <b>Config Saved</b>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function setDraggable() {
+        var box = document.getElementById('dragBox');
+
+        Draggable(box, {
+            positioned: true
+        });
+    }
+</script>
+
+<script>
+    $(function () {
+        initBox();
+        let a = ['.bg_color', '.font_color'];
+        a.forEach(function (x) {
+            let b = $(x);
+            b.colorpicker();
+
+            b.on('colorpickerChange', function (event) {
+                b.css('background-color', event.color.toString());
+            });
+        });
+    });
+
+
+</script>
+</body>
+
+</html>

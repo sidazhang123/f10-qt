@@ -1,0 +1,43 @@
+﻿{
+    "f11_industry": [
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "name",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "银宝山新"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "code",
+            "display": true,
+            "font_size": "12",
+            "tag": "text",
+            "text": "002786"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "updatetime",
+            "display": true,
+            "font_size": "12",
+            "format": "0",
+            "tag": "date-header",
+            "text": "2020-01-02"
+        },
+        {
+            "bg_color": "#FFFFFF",
+            "bold": true,
+            "class": "tables",
+            "date_end": "2020-11-14",
+            "date_start": "2019-05-15",
+            "font_size": "16",
+            "ordering": false,
+            "tag": "date",
+            "text": "2019-12-31"
+        }
+    ]
+}
